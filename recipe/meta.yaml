@@ -11,17 +11,16 @@ source:
 
 build:
   number: 0
-  noarch: python
-  script: {{ PYTHON }} -m pip install --no-deps . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
 
 requirements:
   host:
     - pip
-    - python {{ python_min }}
+    - python
     - hatchling >=1.8.0
     - hatch-vcs
   run:
-    - python >={{ python_min }}
+    - python
     - typing_extensions  # not actually required at runtime
     - wrapt  # provides 'proxy' extra
 
@@ -32,7 +31,7 @@ test:
     - psygnal.utils
   requires:
     - pip
-    - python {{ python_min }}
+    - python
   commands:
     - pip check
 
