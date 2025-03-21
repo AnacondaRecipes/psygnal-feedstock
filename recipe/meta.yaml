@@ -22,12 +22,8 @@ requirements:
     - hatch-vcs
   run:
     - python
-    - typing_extensions  # not actually required at runtime
     - wrapt  # provides 'proxy' extra
 
-# typing_extensions is not actually required at runtime, but is required for
-# type checking. It is included here to ensure that it is installed when
-# running tests.
 
 test:
   imports:
@@ -36,6 +32,7 @@ test:
     - psygnal.utils
   requires:
     - pip
+    - typing_extensions
   commands:
     - pip check
 
