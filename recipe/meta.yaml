@@ -49,7 +49,7 @@ about:
     Psygnal is a pure python implementation of Qt Signals. It is designed to be
     a drop-in replacement for PyQt/PySide signals, but with a few extra features
     and a few less bugs.
-  doc_url: https://psygnal.readthedocs.io/en/latest/
+  doc_url: https://psygnal.readthedocs.io/
   dev_url: https://github.com/tlambert03/psygnal
 
 extra:
