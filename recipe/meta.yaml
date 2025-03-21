@@ -12,6 +12,7 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
+  skip: true # [py<39]
 
 requirements:
   host:
@@ -23,6 +24,10 @@ requirements:
     - python
     - typing_extensions  # not actually required at runtime
     - wrapt  # provides 'proxy' extra
+
+# typing_extensions is not actually required at runtime, but is required for
+# type checking. It is included here to ensure that it is installed when
+# running tests.
 
 test:
   imports:
@@ -41,6 +46,10 @@ about:
   license_family: BSD
   license_file: LICENSE
   summary: Pure python implementation of Qt Signals
+  description: |
+    Psygnal is a pure python implementation of Qt Signals. It is designed to be
+    a drop-in replacement for PyQt/PySide signals, but with a few extra features
+    and a few less bugs.
   doc_url: https://psygnal.readthedocs.io/en/latest/
   dev_url: https://github.com/tlambert03/psygnal
 
