@@ -11,19 +11,19 @@ source:
 
 build:
   number: 0
-  noarch: python
-  script: {{ PYTHON }} -m pip install --no-deps . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
+  skip: true # [py<39]
 
 requirements:
   host:
     - pip
-    - python {{ python_min }}
+    - python
     - hatchling >=1.8.0
     - hatch-vcs
   run:
-    - python >={{ python_min }}
-    - typing_extensions  # not actually required at runtime
+    - python
     - wrapt  # provides 'proxy' extra
+
 
 test:
   imports:
@@ -32,7 +32,7 @@ test:
     - psygnal.utils
   requires:
     - pip
-    - python {{ python_min }}
+    - typing_extensions
   commands:
     - pip check
 
@@ -42,7 +42,11 @@ about:
   license_family: BSD
   license_file: LICENSE
   summary: Pure python implementation of Qt Signals
-  doc_url: https://psygnal.readthedocs.io/en/latest/
+  description: |
+    Psygnal is a pure python implementation of Qt Signals. It is designed to be
+    a drop-in replacement for PyQt/PySide signals, but with a few extra features
+    and a few less bugs.
+  doc_url: https://psygnal.readthedocs.io/
   dev_url: https://github.com/tlambert03/psygnal
 
 extra:
