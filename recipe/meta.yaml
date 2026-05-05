@@ -1,5 +1,5 @@
 {% set name = "psygnal" %}
-{% set version = "0.12.0" %}
+{% set version = "0.15.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8d2a99803f3152c469d3642d36c04d680213a20e114245558e026695adf9a9c2
+  sha256: f64f62dee2306fc1c22050a59b6c6cdad126e04b0cf50e393ff858a1da719096
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
-  skip: true # [py<39]
+  skip: true  # [py<39]
 
 requirements:
   host:
@@ -23,7 +23,6 @@ requirements:
   run:
     - python
     - wrapt  # provides 'proxy' extra
-
 
 test:
   imports:
