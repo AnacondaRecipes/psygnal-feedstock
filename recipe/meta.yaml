@@ -12,7 +12,7 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
-  skip: true  # [py<39]
+  skip: true  # [py<310]
 
 requirements:
   host:
@@ -22,7 +22,6 @@ requirements:
     - hatch-vcs
   run:
     - python
-    - wrapt  # provides 'proxy' extra
 
 test:
   imports:
@@ -36,7 +35,7 @@ test:
     - pip check
 
 about:
-  home: https://github.com/tlambert03/psygnal
+  home: https://github.com/pyapp-kit/psygnal
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
@@ -46,7 +45,7 @@ about:
     a drop-in replacement for PyQt/PySide signals, but with a few extra features
     and a few less bugs.
   doc_url: https://psygnal.readthedocs.io/
-  dev_url: https://github.com/tlambert03/psygnal
+  dev_url: https://github.com/pyapp-kit/psygnal
 
 extra:
   recipe-maintainers:
