@@ -22,6 +22,7 @@ requirements:
     - hatch-vcs
   run:
     - python
+    - wrapt  # provides 'proxy' extra
 
 test:
   imports:
